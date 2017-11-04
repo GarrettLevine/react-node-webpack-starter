@@ -12,10 +12,10 @@ class App extends React.Component {
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                Assemble My Gurls
+                                Geat TITLE
                             </h1>
                             <h2 className="subtitle">
-                                Make your Dream Drag Race Team
+                                great subtitle
                             </h2>
                         </div>
                     </div>
