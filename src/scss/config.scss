@@ -1,0 +1,30 @@
+// 2. Set your own initial variables
+// Update blue
+$blue: #31C1D7;
+// Add pink and its invert
+$pink: #E961B6;
+$pink-invert: #fff;
+// Add a serif family
+$family-serif: "Merriweather", "Georgia", serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+$secondary: $blue;
+$danger: $orange;
+
+// // 4. Setup your Custom Colors
+// $linkedin: #0077B5
+// $linkedin-invert: findColorInvert($linkedin)
+// $twitter: #1DA1F2
+// $twitter-invert: findColorInvert($twitter)
+// $github: #222222
+// $github-invert: findColorInvert($github)
+// // Add new color variables to the color map.
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert), 
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// )
+// $colors: map-merge($colors, $addColors)
