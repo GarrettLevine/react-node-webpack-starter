@@ -4,6 +4,7 @@
   "description": "small tiny react starter",
   "main": "webpack.config.js",
   "dependencies": {
+    "bulma": "^0.6.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
