@@ -5,6 +5,14 @@ class App extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        fetch('./api')
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data);
+            });
+    }
+
     render() {
         return (
             <main>
