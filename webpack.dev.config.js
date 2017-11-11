@@ -10,7 +10,7 @@ const VENDOR_LIBS = [
 
 module.exports = {
     entry: {
-        bundle: ['./src/app/index.js', './src/scss/main.scss'],
+        bundle: ['./src/app/index.jsx', './src/scss/main.scss'],
         vendor: VENDOR_LIBS,
     },
     output: {
@@ -44,6 +44,12 @@ module.exports = {
     module: {
         rules: [
             {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+            },
+            {
                 use: 'babel-loader',
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -53,7 +59,7 @@ module.exports = {
                 test: /\.scss$/,
                 include: path.join(__dirname, 'src'),
                 use: ['style-loader', 'css-loader', 'sass-loader'],
-            }
+            },
         ],
     },
     plugins: [
