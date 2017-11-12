@@ -1,6 +1,9 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 
-class App extends React.Component {
+type Props = {};
+
+class App extends React.Component<Props, null> {
   componentDidMount() {
     fetch('./api') // eslint-disable-line no-undef
       .then(resp => resp.json())

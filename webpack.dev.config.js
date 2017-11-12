@@ -1,7 +1,9 @@
-const webpack = require('webpack');
 const path = require('path');
+
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const FlowtypePlugin = require('flowtype-loader/plugin');
 
 const VENDOR_LIBS = [
     'react',
@@ -44,8 +46,14 @@ module.exports = {
     module: {
         rules: [
             {
+                enforce: 'pre',
+                test: [/\.js$/, /\.jsx$/],
+                exclude: /node_modules/,
+                loader: 'flowtype-loader',
+            },
+            {
                 enforce: "pre",
-                test: /\.js$/,
+                test: [/\.js$/, /\.jsx$/],
                 exclude: /node_modules/,
                 loader: "eslint-loader",
             },
@@ -73,5 +81,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor'],
         }),
+        new FlowtypePlugin(),
     ]
 };
