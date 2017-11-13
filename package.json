@@ -28,6 +28,7 @@
     "eslint-plugin-react": "^7.4.0",
     "flow-babel-webpack-plugin": "^1.1.0",
     "flow-bin": "^0.59.0",
+    "flow-remove-types": "^1.2.3",
     "flowtype-loader": "^0.2.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.6.0",
@@ -46,10 +47,8 @@
     "watch": "./node_modules/.bin/npm-run-all --parallel watch-backend watch-frontend",
     "clean": "rm -rf public && mkdir -p public",
     "watch-frontend": "npm run && NODE_ENV='development' ./node_modules/.bin/webpack-dev-server --config webpack.dev.config.js --inline",
-    "watch-backend": "NODE_ENV='development' NODE_PATH=`pwd`/lib ./node_modules/.bin/nodemon server.js",
-    "flow-start": "flow start",
-    "flow-stop": "flow stop",
-    "flow-coverage": "flow coverage"
+    "watch-backend": "npm run clean-backend && NODE_ENV='development' NODE_PATH=`pwd`/lib ./node_modules/.bin/nodemon ./lib/server.js",
+    "clean-backend": "./node_modules/.bin/flow-remove-types ./src/lib/ -d ./lib"
   },
   "author": "",
   "license": "ISC"
