@@ -30,7 +30,7 @@ module.exports = {
             path: path.resolve(__dirname, 'public'),
         },
         contentBase: `${__dirname}/public`,
-        publicPath: 'http://localhost:3000/',
+        publicPath: 'http://localhost:8080/',
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -39,7 +39,7 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             '/': {
-                target: 'http://localhost:8080',
+                target: 'http://localhost:3000',
             },
         },
     },
