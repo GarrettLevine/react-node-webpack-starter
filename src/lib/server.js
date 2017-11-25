@@ -7,6 +7,8 @@ const router = require('router'); // eslint-disable-line
 const app = express();
 const port: number = Number(process.env.PORT) || 3000;
 
+console.log("YES")
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));

@@ -11,6 +11,7 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.0.2",
@@ -19,6 +20,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -29,11 +31,11 @@
     "flow-babel-webpack-plugin": "^1.1.0",
     "flow-bin": "^0.59.0",
     "flow-remove-types": "^1.2.3",
+    "flow-watch": "^1.1.1",
     "flowtype-loader": "^0.2.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.6.0",
     "nodemon": "^1.12.1",
-    "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
     "prop-types-extra": "^1.0.1",
     "sass-loader": "^6.0.6",
@@ -44,11 +46,11 @@
   },
   "scripts": {
     "start": "npm run clean && npm run watch",
-    "watch": "./node_modules/.bin/npm-run-all --parallel watch-backend watch-frontend",
+    "watch": "./node_modules/.bin/concurrently \"npm run build-backend -- --watch\" \"npm run watch-backend\" \"npm run watch-frontend\"",
     "clean": "rm -rf public && mkdir -p public",
     "watch-frontend": "npm run && NODE_ENV='development' ./node_modules/.bin/webpack-dev-server --config webpack.dev.config.js --inline",
-    "watch-backend": "npm run clean-backend && NODE_ENV='development' NODE_PATH=`pwd`/lib ./node_modules/.bin/nodemon ./lib/server.js",
-    "clean-backend": "./node_modules/.bin/flow-remove-types ./src/lib/ -d ./lib"
+    "build-backend": "babel ./src/lib --out-dir ./lib/ --no-babelrc --presets=flow --ignore spec.js ",
+    "watch-backend": "NODE_PATH=`pwd`/lib ./node_modules/.bin/nodemon ./lib/server.js"
   },
   "author": "",
   "license": "ISC"
