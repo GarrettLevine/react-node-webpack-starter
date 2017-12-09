@@ -3,12 +3,30 @@ import * as React from 'react';
 
 type Props = {};
 
-class App extends React.Component<Props, null> {
+type State = {
+  message: string,
+};
+
+type Resp = {
+  message: string,
+};
+
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      message: '',
+    };
+  }
+
   componentDidMount() {
     fetch('/api') // eslint-disable-line no-undef
       .then(resp => resp.json())
-      .then((data) => {
-        console.log(data);
+      .then((data: Resp) => {
+        this.setState({
+          message: data.message,
+        });
       });
   }
 
@@ -22,6 +40,7 @@ class App extends React.Component<Props, null> {
               <h2 className="subtitle">great subtitle</h2>
             </div>
           </div>
+          <span>{this.state.message}</span>
         </section>
       </main>
     );
