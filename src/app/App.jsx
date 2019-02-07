@@ -1,18 +1,8 @@
-// @flow
+
 import * as React from 'react';
 
-type Props = {};
-
-type State = {
-  message: string,
-};
-
-type Resp = {
-  message: string,
-};
-
-class App extends React.Component<Props, State> {
-  constructor(props: Props) {
+class App extends React.Component {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -23,7 +13,7 @@ class App extends React.Component<Props, State> {
   componentDidMount() {
     fetch('/api') // eslint-disable-line no-undef
       .then(resp => resp.json())
-      .then((data: Resp) => {
+      .then((data) => {
         this.setState({
           message: data.message,
         });
@@ -36,7 +26,7 @@ class App extends React.Component<Props, State> {
         <section className="hero is-primary">
           <div className="hero-body">
             <div className="container">
-              <h1 className="title">Geat TITLE</h1>
+              <h1 className="title">Great TITLE</h1>
               <h2 className="subtitle">great subtitle</h2>
             </div>
           </div>
