@@ -6,6 +6,9 @@
         "jsx-a11y",
         "import"
     ],
+    "parserOptions": {
+        "react/prefer-stateless-function": false
+    },
     "env": {
         "browser": true,
         "node": true

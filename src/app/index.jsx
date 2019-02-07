@@ -1,11 +1,10 @@
-// @flow
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import AppRouter from './AppRouter';
+// using ES6 modules
 
 ReactDOM.render(
-  <App header="great" />,
-  // $FlowFixMe: suppressing this error until figure out
-  document.getElementById('app'), // eslint-disable-line
+  <AppRouter />,
+  document.getElementById('app'),
 );
